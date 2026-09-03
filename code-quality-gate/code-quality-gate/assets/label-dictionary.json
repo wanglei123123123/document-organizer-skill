@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "description": "应用宝用例标签字典（机器可读版本）",
+    "source": "references/testcase-labels.md",
+    "version": "1.6.0",
+    "last_updated": "2026-04-27"
+  },
+  "priority": {
+    "required": true,
+    "values": ["P0", "P1", "P2"],
+    "description": "用例优先级"
+  },
+  "platforms": {
+    "required": true,
+    "multi_value": true,
+    "values": [
+      "PCYYB",
+      "ARM",
+      "手助",
+      "微软绿色版",
+      "ARM微软绿色版",
+      "360SDK",
+      "联想SDK"
+    ],
+    "description": "所属端（可多值）"
+  },
+  "phases": {
+    "required": true,
+    "multi_value": true,
+    "values": [
+      "冒烟",
+      "集成",
+      "虎牙集成",
+      "微软集成用例",
+      "360集成用例",
+      "联想集成用例",
+      "增量",
+      "待审核"
+    ],
+    "constraints": {
+      "LABEL-07": "冒烟 ⊆ 集成（标了冒烟必须也标集成）",
+      "LABEL-08": "所属测试方=虎牙侧 → 必含虎牙集成",
+      "LABEL-09_mapping": {
+        "微软绿色版": "微软集成用例",
+        "ARM微软绿色版": "微软集成用例",
+        "360SDK": "360集成用例",
+        "联想SDK": "联想集成用例"
+      }
+    },
+    "description": "适用阶段（可多值）"
+  },
+  "test_party": {
+    "required": false,
+    "values": ["虎牙侧", ""],
+    "description": "所属测试方"
+  },
+  "automation": {
+    "required": false,
+    "values": [
+      "待自动化",
+      "已自动化",
+      "已自动化但暂未配置",
+      "未自动化",
+      "未填写",
+      ""
+    ],
+    "description": "自动化状态"
+  }
+}
