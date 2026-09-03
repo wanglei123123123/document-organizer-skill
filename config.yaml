@@ -1,0 +1,39 @@
+# Document Organizer 配置示例
+move_or_copy: move  # "move" 或 "copy"
+default_dest: "Other"
+
+ignore_patterns:
+  # 支持正则
+  - '^Thumbs.db$'
+  - '\.DS_Store$'
+
+extension_map:
+  pdf: "PDFs"
+  doc: "Word"
+  docx: "Word"
+  xls: "Excel"
+  xlsx: "Excel"
+  ppt: "Presentations"
+  txt: "Text"
+  md: "Markdown"
+  jpg: "Images"
+  jpeg: "Images"
+  png: "Images"
+  zip: "Archives"
+
+tag_rules:
+  # pattern 可以是正则或普通字符串；flags 中包含 'i' 表示忽略大小写
+  - pattern: 'invoice|发票'
+    dest: "Finance/Invoices"
+    flags: "i"
+  - pattern: 'resume|简历|CV'
+    dest: "People/Resumes"
+    flags: "i"
+  - pattern: '\\bproject[_ -]?alpha\\b'
+    dest: "Projects/Alpha"
+    flags: "i"
+
+date_archive:
+  enabled: true
+  field: "mtime"        # "mtime" 或 "ctime"
+  archive_root: "Archive"
